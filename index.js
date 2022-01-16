@@ -124,6 +124,7 @@ app.post("/api/delete",(req, res) =>{
     })
 })
 
-app.listen(process.env.PORT,() => {
-    console.log("BE started at port 9002");
+const port = process.env.PORT || 9002
+app.listen(port,() => {
+    console.log(`BE started at port ${port}.`);
 })
