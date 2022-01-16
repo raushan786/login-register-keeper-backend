@@ -30,6 +30,11 @@ mongoose.connect(`mongodb+srv://keeper_login:${dbPassword}@cluster0.swjlz.mongod
     const keeper = new mongoose.model("keeper", kepperSchema)
 
 //Routes
+
+app.get("/", (req, res) => {
+    res.send("Login register keeper BE started.")
+})
+
 app.post("/api/login", (req, res) =>{
     const {email, password} = (req.body)
     User.findOne({email: email}, (err, user) => {
