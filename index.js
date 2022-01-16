@@ -11,7 +11,7 @@ app.use(cors())
 
 const dbPassword = process.env.DB_PASSWORD
 
-mongoose.connect(`mongodb+srv://keeper_login:${dbPassword}@cluster0.swjlz.mongodb.net/kepperAppDatabase?retryWrites=true&w=majority`, {useNewUrlParser: true, useUnifiedTopology: true}, () => console.log("DB Connected"))
+mongoose.connect(`mongodb+srv://keeper_login:${dbPassword}@cluster0.swjlz.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`, {useNewUrlParser: true, useUnifiedTopology: true}, () => console.log("DB Connected"))
 
     const userSchema = new  mongoose.Schema({
         name: String,
@@ -75,14 +75,11 @@ app.post("/api/register", (req, res) =>{
 })
 
 app.post("/api/getAll",(req, res) =>{
-    console.log(req.body)
     const {userId} = req.body
-    console.log(userId)
     keeper.find({userId}, (err, keeperList) => {
         if(err){
             console.log(err)
         }else{
-            console.log(keeperList)
             res.status(200).send(keeperList)
         }
     })
