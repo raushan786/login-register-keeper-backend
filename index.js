@@ -11,7 +11,7 @@ app.use(cors())
 
 const dbPassword = process.env.DB_PASSWORD
 
-mongoose.connect(`mongodb+srv://keeper_login:${dbPassword}@cluster0.swjlz.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`, {useNewUrlParser: true, useUnifiedTopology: true}, () => console.log("DB Connected"))
+mongoose.connect(`mongodb+srv://admin:${dbPassword}@cluster0.wury8.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`, {useNewUrlParser: true, useUnifiedTopology: true}, () => console.log("DB Connected"))
 
     const userSchema = new  mongoose.Schema({
         name: String,
